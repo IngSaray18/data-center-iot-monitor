@@ -1,1 +1,490 @@
-
+[
+    {
+        "id": "307821e4eae9762a",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "2be1744ae4bae7d9",
+        "type": "mqtt in",
+        "z": "307821e4eae9762a",
+        "name": "Temperatura",
+        "topic": "mi_casa/temperatura",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "5cb015c7b59d6321",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 550,
+        "y": 220,
+        "wires": [
+            [
+                "1b2c4ff6e6bc3d71",
+                "016a2eaa20958860",
+                "b1172c1c6a422c63",
+                "0f9416ace34c1e4a"
+            ]
+        ]
+    },
+    {
+        "id": "1b2c4ff6e6bc3d71",
+        "type": "ui_gauge",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "group": "a067041e56afcf7a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "50",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 910,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "016a2eaa20958860",
+        "type": "ui_chart",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "group": "bd545e5b76c8f26c",
+        "order": 0,
+        "width": "6",
+        "height": "5",
+        "label": "Historico temperatura",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 960,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "76df100b6c0dbd83",
+        "type": "mqtt out",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "topic": "mi_casa/led",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "5cb015c7b59d6321",
+        "x": 1430,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "48230e2f386919a5",
+        "type": "ui_switch",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "label": "LED",
+        "tooltip": "",
+        "group": "b4f51c9d1b05aead",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "mi_casa/led",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "1",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "0",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 1210,
+        "y": 340,
+        "wires": [
+            [
+                "76df100b6c0dbd83"
+            ]
+        ]
+    },
+    {
+        "id": "d4cdbd8b6affca01",
+        "type": "mqtt in",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "topic": "mi_casa/humedad",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "5cb015c7b59d6321",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 570,
+        "y": 160,
+        "wires": [
+            [
+                "0c25cbeeb9313350"
+            ]
+        ]
+    },
+    {
+        "id": "0c25cbeeb9313350",
+        "type": "ui_gauge",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "group": "b9c13c75bf275fb7",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humedad",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 900,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "b1172c1c6a422c63",
+        "type": "switch",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "28",
+                "vt": "str"
+            },
+            {
+                "t": "lt",
+                "v": "28",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 970,
+        "y": 240,
+        "wires": [
+            [
+                "a9c88cddebcaa0fe"
+            ],
+            [
+                "8a721e06be646ee1"
+            ]
+        ]
+    },
+    {
+        "id": "a9c88cddebcaa0fe",
+        "type": "change",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 220,
+        "wires": [
+            [
+                "76df100b6c0dbd83"
+            ]
+        ]
+    },
+    {
+        "id": "8a721e06be646ee1",
+        "type": "change",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1180,
+        "y": 280,
+        "wires": [
+            [
+                "76df100b6c0dbd83"
+            ]
+        ]
+    },
+    {
+        "id": "0f9416ace34c1e4a",
+        "type": "switch",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gt",
+                "v": "28",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 990,
+        "y": 580,
+        "wires": [
+            [
+                "f9929ee8c5f357ff",
+                "c5258f9feb12c2e7"
+            ]
+        ]
+    },
+    {
+        "id": "f9929ee8c5f357ff",
+        "type": "template",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "{\"chatId\": 6093585497, \"type\": \"message\", \"content\": \"⚠️ ¡ALERTA! Temperatura en Rack 01: {{payload}} °C\"}",
+        "output": "str",
+        "x": 1180,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e028f1ad4176c77f",
+        "type": "inject",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 660,
+        "y": 720,
+        "wires": [
+            [
+                "c5258f9feb12c2e7"
+            ]
+        ]
+    },
+    {
+        "id": "c5258f9feb12c2e7",
+        "type": "function",
+        "z": "307821e4eae9762a",
+        "name": "function 1",
+        "func": "\nmsg.payload = {\n    chatId: 6093585497, // Tu ID\n    type: 'message',\n    content: \"HOLA\" //\"⚠️ ¡ALERTA! Temperatura centro de datos: \" + msg.payload + \" °C\"\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1180,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e825461a4fcdb18c",
+        "type": "telegram sender",
+        "z": "307821e4eae9762a",
+        "name": "",
+        "bot": "",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 1710,
+        "y": 560,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5cb015c7b59d6321",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "a067041e56afcf7a",
+        "type": "ui_group",
+        "name": "Sensores",
+        "tab": "5d304eb978955830",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bd545e5b76c8f26c",
+        "type": "ui_group",
+        "name": "Historico",
+        "tab": "5d304eb978955830",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b4f51c9d1b05aead",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "5d304eb978955830",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b9c13c75bf275fb7",
+        "type": "ui_group",
+        "name": "HUMEDAD",
+        "tab": "5d304eb978955830",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "5d304eb978955830",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "f8dd9a440839667a",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-telegrambot": "17.0.5"
+        }
+    }
+]
